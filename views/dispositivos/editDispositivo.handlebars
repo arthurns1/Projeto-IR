@@ -1,0 +1,24 @@
+<h1>Editar Dispositivo:</h1>
+{{#each erros}}
+    <div class="alert-danger alert">{{text}}</div>
+{{/each}}
+<div class="card">
+    <div class="card-body">
+        <form action="/dispositivos/edit" method="post">
+            <input type="hidden" name="id" value="{{_id}}">
+                <label for="isala">Sala:</label>
+                    <input type="text" name="sala" id="isala" class="form-control">
+                <label for="imarca">Marca:</label>
+                    <select name="tipo" id="itipo" class="form-control">
+                    <option value="Ar condicionado">Ar condicionado</option>
+                    <option value="Projetor">Projetor</option>
+                </select>
+                <label for="itipo">Tipo:</label>
+                    <select name="tipo" id="itipo" class="form-control" value="{{tipo}}">
+                        <option value="Ar condicionado">Ar condicionado</option>
+                        <option value="Projetor">Projetor</option>
+                    </select>
+            <button type="submit" class="btn btn-success mt-4">Editar dispositivo</button>
+    </div>
+</div>
+</form>

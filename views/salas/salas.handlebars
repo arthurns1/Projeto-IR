@@ -1,0 +1,34 @@
+<h1>Salas:</h1>
+<a href="/salas/add"><button class="btn btn-success mt-3">Adicionar sala</button></a>
+<hr />
+{{#each salas}}
+  <div class="card mt-4">
+    <div class="card-body">
+      <h2>{{nome}}</h2>
+      <b>Ip:{{ip}}</b>
+      <br />
+      <div>
+        <a href="salas/edit/{{_id}}"><button
+            class="btn-success btn mt-2"
+          >Editar</button></a>
+        <a href="salas/gerenciar/{{_id}}"><button
+            class="btn-success btn mt-2"
+          >Gerenciar Dispositivos</button></a>
+      </div>
+      <div>
+
+        <a href="/salas/controlar/{{_id}}"><button
+            class="btn-primary btn mt-2"
+          >Controlar</button></a>
+
+        <form action="/salas/deletar" method="post" class="d-inline">
+          <input type="hidden" name="id" value="{{_id}}" />
+          <button class="btn btn-danger mt-2" type="submit">Deletar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+{{else}}
+  <h1>Não há nenhuma sala cadastrada</h1>
+{{/each}}

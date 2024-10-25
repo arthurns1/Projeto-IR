@@ -1,0 +1,57 @@
+<h1>Controlar Dispositivos:</h1>
+
+{{#each dispositivos}}
+  {{#if (ehArCondicionado tipo)}}
+    <section>
+      <h2>{{tipo}} {{marca}}:</h2>
+      <form action="/salas/controlar/{{_id}}" method="post">
+        <input
+          type="submit"
+          value="Ligar"
+          name="acao"
+          class="btn-success btn"
+        />
+        <input
+          type="submit"
+          value="Desligar"
+          name="acao"
+          class="btn btn-danger"
+        />
+        <input
+          type="submit"
+          value="Temperatura 20"
+          name="acao"
+          class="btn btn-secondary"
+        />
+        <input
+          type="submit"
+          value="Temperatura 22"
+          name="acao"
+          class="btn btn-secondary"
+        />
+      </form>
+    </section>
+  {{/if}}
+{{/each}}
+
+{{#each dispositivos}}
+  {{#if (ehProjetor tipo)}}
+    <section class="mt-4">
+      <h2>{{tipo}} {{marca}}:</h2>
+      <form action="/salas/controlar/{{_id}}" method="post">
+        <input
+          type="submit"
+          value="Ligar"
+          name="acao"
+          class="btn-success btn"
+        />
+        <input
+          type="submit"
+          value="Desligar"
+          name="acao"
+          class="btn btn-danger"
+        />
+      </form>
+    </section>
+  {{/if}}
+{{/each}}

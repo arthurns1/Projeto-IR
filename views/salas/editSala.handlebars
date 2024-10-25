@@ -1,0 +1,17 @@
+<h1>Editar sala:</h1>
+{{#each erros}}
+    <div class="alert-danger alert">{{text}}</div>
+{{/each}}
+<div class="card">
+    <div class="card-body">
+        <form action="/salas/edit/" method="post">
+            <input type="hidden" name="id" value="{{_id}}">
+                <label for="inome">Nome:</label>
+                    <input type="text" name="nome" id="inome" class="form-control" value="{{nome}}">
+                <label for="iIp">IP:</label>
+                    <input type="text" name="ip" id="iIp" class="form-control" value="{{ip}}">
+                
+            <button type="submit" class="btn btn-success mt-4">Editar sala</button>
+    </div>
+</div>
+</form>

@@ -1,0 +1,61 @@
+<section class="card mt-4 w-50">
+  <div class="card-body">
+    <h1>Dipositivos disponíveis:</h1>
+    <ul>  
+        {{#each dispositivos}}
+          {{#unless (estaNaLista _id ../_sala.dispositivos)}}
+            <li>
+              <div class="card mt-4">
+                <div class="card-body">
+                  <h2>Sala: {{sala}}</h2>
+                  <b>Marca: {{marca}}</b>
+                  <br />
+                  <b>Tipo: {{tipo}}</b>
+                  <br />
+                  <form action="/salas/addDispositivo/{{../_sala.id}}" method="post">
+                    <input type="hidden" name="dispositivo" value="{{_id}}" />
+                    <input
+                      type="submit"
+                      value="Adicionar"
+                      class="btn btn-success mt-2"
+                    />
+                  </form>
+                </div>
+              </div>
+            </li>
+          {{/unless}}
+        
+        {{/each}}
+
+    </ul>
+  </div>
+</section>
+
+<section class="card mt-4 w-50">
+  <div class="card-body">
+    <h1>Dipositivos da sala {{_sala.nome}}:</h1>
+    <ul>
+      {{#each dispositivosSala}}
+        <li>
+            <div class="card mt-4">
+              <div class="card-body">
+                <h2>Sala: {{sala}}</h2>
+                <b>Marca: {{marca}}</b>
+                <br />
+                <b>Tipo: {{tipo}}</b>
+                <br />
+                <form action="/salas/removerDispositivo/{{../_sala.id}}" method="post">
+                  <input type="hidden" name="dispositivo" value="{{_id}}" />
+                  <input
+                    type="submit"
+                    value="Remover"
+                    class="btn btn-danger mt-2"
+                  />
+                </form>
+              </div>
+            </div>
+          </li>
+      {{/each}}
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,34 @@
+{
+  "name": "projeto-ifrn",
+  "version": "1.0.0",
+  "description": "Projeto para ligar os ares condicionados do ifrn atraves do envio de comandos enviados ",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon  ./Projeto-IFRN-Master/app",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arthurns1/Projeto-IFRN.git"
+  },
+  "keywords": [
+    "ifrn",
+    "projeto",
+    "arduino",
+    "automação"
+  ],
+  "author": "José Arthur Nascimento Santos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arthurns1/Projeto-IFRN/issues"
+  },
+  "homepage": "https://github.com/arthurns1/Projeto-IFRN#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "connect-flash": "^0.1.1",
+    "express": "^4.19.2",
+    "express-handlebars": "^8.0.1",
+    "express-session": "^1.18.0",
+    "mongoose": "^8.5.3"
+  }
+}

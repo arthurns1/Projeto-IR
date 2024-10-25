@@ -1,0 +1,23 @@
+<h1>Adicionar Dispositivo:</h1>
+{{#each erros}}
+    <div class="alert-danger alert">{{text}}</div>
+{{/each}}
+<div class="card">
+    <div class="card-body">
+        <form action="/dispositivos/add/novo" method="post">
+            <label for="isala">Sala:</label>
+                <input type="text" name="sala" id="isala" class="form-control">
+            <label for="imarca">Marca:</label>
+                <select name="marca" id="imarca" class="form-control">
+                    <option value="Elgin">Elgin</option>
+                    <option value="mídia">Mídia</option>
+                </select>    
+            <label for="itipo">Tipo:</label>
+                <select name="tipo" id="itipo" class="form-control">
+                    <option value="Ar condicionado">Ar condicionado</option>
+                    <option value="Projetor">Projetor</option>
+                </select>
+            <button type="submit" class="btn btn-success mt-4">Adicionar dispositivo</button>
+    </div>
+</div>
+</form>

@@ -1,0 +1,25 @@
+<h1>Dispositivos:</h1>
+<a href="/dispositivos/add"><button class="btn btn-success mt-3">Adicionar
+    dispositivo</button></a>
+<hr />
+{{#each dispositivos}}
+  <div class="card mt-4">
+    <div class="card-body">
+      <h2>{{tipo}}</h2>
+      sala:<b>{{sala}}</b>
+      <br />
+      Marca:<b>{{marca}}</b>
+      <br />
+      <a href="dispositivos/edit/{{_id}}"><button
+          class="btn-success btn mt-2"
+        >Editar</button></a>
+      <form action="/dispositivos/deletar" method="post">
+        <input type="hidden" name="id" value="{{id}}" />
+        <button class="btn btn-danger mt-2" type="submit">Deletar</button>
+      </form>
+    </div>
+  </div>
+
+{{else}}
+  <h1>Não há nenhum dispositivo cadastrado</h1>
+{{/each}}
