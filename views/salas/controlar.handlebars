@@ -32,9 +32,6 @@
       </form>
     </section>
   {{/if}}
-{{/each}}
-
-{{#each dispositivos}}
   {{#if (ehProjetor tipo)}}
     <section class="mt-4">
       <h2>{{tipo}} {{marca}}:</h2>
@@ -54,4 +51,6 @@
       </form>
     </section>
   {{/if}}
+{{else}}
+  <h1 class="mt-4">Não há dispositivos nesta sala</h1>
 {{/each}}

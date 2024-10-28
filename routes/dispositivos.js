@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const Dispositivo = require("../models/Dispositivo");
+const Sala = require("../models/Sala");
+const mongoose = require("mongoose");
 
 router.get("/", (req, res) => {
   Dispositivo.find().then((dispositivos) => {
@@ -100,8 +102,16 @@ router.post("/edit", (req, res) => {
   }
 });
 
-router.post("/deletar", (req, res) => {
-  Dispositivo.deleteOne({ _id: req.body.id })
+router.post("/deletar", async (req, res) => {
+  await Sala.updateMany(
+    {},
+    {
+      $pull: {
+        dispositivos: req.body.id,
+      },
+    }
+  );
+  await Dispositivo.deleteOne({ _id: req.body.id })
     .then(() => {
       req.flash("success_msg", "Sucesso ao remover dispositivo");
       res.redirect("/dispositivos");

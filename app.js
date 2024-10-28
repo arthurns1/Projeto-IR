@@ -8,8 +8,10 @@ const path = require("path");
 const session = require("express-session");
 const dispositivos = require("./routes/dispositivos");
 const salas = require("./routes/salas");
+const dotenv = require("dotenv").config();
 
 //configurações
+
 //seção
 app.use(
   session({
@@ -77,9 +79,11 @@ app.engine(
 app.set("view engine", "handlebars");
 
 //Mongoose
+const DBPassword = process.env.DBpassword;
+const DBUser = process.env.DBuser;
 mongoose
   .connect(
-    "mongodb+srv://Tutu:12345@thurssaurus.wma5all.mongodb.net/?retryWrites=true&w=majority&appName=Thurssaurus"
+    `mongodb+srv://${DBUser}:${DBPassword}@thurssaurus.wma5all.mongodb.net/?retryWrites=true&w=majority&appName=Thurssaurus`
   )
   .then(() => {
     console.log("Sucesso ao conectar com o banco de dados");
