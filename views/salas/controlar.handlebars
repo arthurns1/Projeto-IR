@@ -1,10 +1,11 @@
 <h1>Controlar Dispositivos:</h1>
 
 {{#each dispositivos}}
+
   {{#if (ehArCondicionado tipo)}}
     <section>
       <h2>{{tipo}} {{marca}}:</h2>
-      <form action="/salas/controlar/{{_id}}" method="post">
+      <form action="/salas/controlar?id={{_id}}&sala_id={{../sala_id}}" method="post">
         <input
           type="submit"
           value="Ligar"
@@ -35,7 +36,7 @@
   {{#if (ehProjetor tipo)}}
     <section class="mt-4">
       <h2>{{tipo}} {{marca}}:</h2>
-      <form action="/salas/controlar/{{_id}}" method="post">
+      <form action="/salas/controlar?id={{_id}}&sala_id={{../sala_id}}" method="post">
         <input
           type="submit"
           value="Ligar"

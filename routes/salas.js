@@ -193,19 +193,22 @@ router.get("/controlar/:id", (req, res) => {
   Sala.findById(req.params.id)
     .populate("dispositivos")
     .then((dispositivos) => {
-      res.render("salas/controlar", dispositivos);
+      res.render("salas/controlar", {
+        dispositivos: dispositivos.dispositivos,
+        sala_id: req.params.id,
+      });
     });
 });
 
-router.post("/controlar/:id", (req, res) => {
+router.post("/controlar", (req, res) => {
   Dispositivo.findById(req.params.id).then((dispositivo) => {
     try {
-      controlarDispositivo(dispositivo.id, req.body.acao, dispositivo.marca);
+      controlarDispositivo(req.query.id, req.body.acao, dispositivo.marca);
       req.flash("success_msg", "Sucesso ao enviar comando");
-      res.redirect("/salas/gerenciar/" + req.params.id);
+      res.redirect("/salas/controlar/" + req.query.sala_id);
     } catch (err) {
       req.flash("error_msg", "Houve um erro interno ao remover o dispositivo");
-      res.redirect("/salas/gerenciar/" + req.params.id);
+      res.redirect("/salas/controlar/" + req.query.sala_id);
     }
   });
 });
