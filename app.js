@@ -9,7 +9,7 @@ const session = require("express-session");
 const dispositivos = require("./routes/dispositivos");
 const salas = require("./routes/salas");
 const dotenv = require("dotenv").config();
-
+const db = require("./db/db");
 //configurações
 
 //seção
@@ -79,12 +79,9 @@ app.engine(
 app.set("view engine", "handlebars");
 
 //Mongoose
-const DBPassword = process.env.DBpassword;
-const DBUser = process.env.DBuser;
+
 mongoose
-  .connect(
-    `mongodb+srv://${DBUser}:${DBPassword}@thurssaurus.wma5all.mongodb.net/?retryWrites=true&w=majority&appName=Thurssaurus`
-  )
+  .connect(db.mongoURI)
   .then(() => {
     console.log("Sucesso ao conectar com o banco de dados");
   })

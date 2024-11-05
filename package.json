@@ -4,7 +4,7 @@
   "description": "Projeto para ligar os ares condicionados do ifrn atraves do envio de comandos enviados ",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon  ./Projeto-IFRN-Master/app",
+    "start": "node  app.js",
     "test": "test"
   },
   "repository": {
