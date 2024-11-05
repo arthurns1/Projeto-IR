@@ -1,6 +1,14 @@
 module.exports = function converterEmCodigo(marca, comando, dispositivo) {
   dispositivo = dispositivo == "Projetor" ? 2 : 1;
-  marca = marca == "mídia" ? 1 : 2;
+  if (dispositivo == "Projetor") {
+    dispositivo = 2;
+  } else if (dispositivo == "Ar condicionado") {
+  }
+  if (marca == "mídia") {
+    marca = 1;
+  } else if (marca == "Elgin") {
+    marca = 2;
+  }
 
   if (comando == "Ligar") {
     comando = 1;
